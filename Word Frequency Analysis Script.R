@@ -138,6 +138,9 @@ alerts.all.tidy %>%
   theme(panel.background = element_rect(fill = "transparent", color = NA),
         plot.background = element_rect(fill = "transparent", color = NA))
 
+ggsave(filename = "Most Frequent Words Across All Alerts.png",  bg = "white")
+
+
 #' 
 #' ## Frequency of keywords
 ## ----echo=FALSE-------------------------------------------------------------------------------------------
@@ -158,6 +161,9 @@ alerts.all.tidy %>%
   theme(panel.background = element_rect(fill = "transparent", color = NA),
         plot.background = element_rect(fill = "transparent", color = NA))
 
+ggsave(filename = "Frequency of Keywords Across All Alerts.png",  bg = "white")
+
+
 #' 
 #' 
 #' 
@@ -166,20 +172,4 @@ alerts.all.tidy %>%
 ## ---------------------------------------------------------------------------------------------------------
 #knitr::purl("Work Frequency Analysis Notebook.Rmd", "Word Frequency Analysis Script", documentation = 2)
 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
-#' 
+

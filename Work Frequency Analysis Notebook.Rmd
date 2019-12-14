@@ -43,7 +43,6 @@ if (!require(tidytext)){
 }
 ```
 
-
 # Import data {.tabset}
 
 ## get list of private school documents
@@ -117,9 +116,8 @@ alerts.public
 
 # Word frequencies {.tabset}
 
-## Word Counts All {.tabset}
 
-### Proportions
+## Most frequent words
 
 ```{r echo=FALSE}
 
@@ -129,8 +127,8 @@ alerts.all.tidy %>%
   count(word, sort = TRUE) %>%
   mutate(n_rows = num_rows,
          proportion = n/n_rows) %>%
-  top_n(10,wt = n) %>%
-  ggplot(aes(x = reorder(word, proportion), label = proportion, y = proportion)) + 
+  top_n(10, wt = n) %>%
+  ggplot(aes(x = reorder(word, proportion), label = sprintf("%.1f %%", 100*proportion), y = proportion)) + 
   geom_col(alpha = 0.8, show.legend = FALSE) +
   geom_text(hjust = 0, nudge_y = 0.0005, size = 3) +
   coord_flip() +
@@ -141,62 +139,27 @@ alerts.all.tidy %>%
         plot.background = element_rect(fill = "transparent", color = NA))
 ```
 
-### Counts
-
+## Frequency of keywords
 ```{r echo=FALSE}
-alerts.all.tidy %>%
-  count(institutionType, word, sort = TRUE) %>%
-  top_n(10, wt = n) %>%
-  ggplot(aes(x = reorder(word, n), label = n , y = n)) + 
-  geom_col(alpha = 0.8, show.legend = FALSE) +
-  geom_text(hjust = 0, nudge_y = 0.0005, size = 3) +
-  coord_flip() +
-  labs(x = "",
-       y = "Number of times word appears across all crime alerts") + 
-  ggtitle("Most frequent words across all crime alerts") +
-  theme(panel.background = element_rect(fill = "transparent", color = NA),
-        plot.background = element_rect(fill = "transparent", color = NA))
-```
-## Public vs. Private {.tabset}
-
-### Proportions
-
-```{r echo=FALSE}
-num_rows.private <- nrow(alerts.all.tidy %>% filter(institutionType == "Private"))
-num_rows.public <- nrow(alerts.all.tidy %>% filter(institutionType == "Public"))
+num_rows <- nrow(alerts.all.tidy)
 
 alerts.all.tidy %>%
-  count(institutionType, word, sort = TRUE) %>%
-  mutate(n_rows = ifelse(),
+  count(word, sort = TRUE) %>%
+  mutate(n_rows = num_rows,
          proportion = n/n_rows) %>%
-  top_n(10,wt = n) %>%
-  ggplot(aes(x = reorder(word, proportion), label = proportion, y = proportion)) + 
+  filter(word == "subject" | word == "student" | word == "suspect" | word == "victim" | word == "male" | word == "criminal" | word == "black" | word == "white" | word == "sexual" | word == "intoxication" | word == "unknown" | word == "crime" | word == "alcohol" | word == "use" | word == "person") %>%
+  ggplot(aes(x = reorder(word, proportion), label = sprintf("%.1f %%", 100*proportion), y = proportion)) + 
   geom_col(alpha = 0.8, show.legend = FALSE) +
   geom_text(hjust = 0, nudge_y = 0.0005, size = 3) +
   coord_flip() +
   labs(x = "",
-       y = "Proportion of times word used across all alerts") + 
-  ggtitle("Most frequent words across all crime alerts") +
+       y = "Proportion of times key words used across all alerts") + 
+  ggtitle("Frequency of keywords across all crime alerts") +
   theme(panel.background = element_rect(fill = "transparent", color = NA),
         plot.background = element_rect(fill = "transparent", color = NA))
 ```
 
-### Counts
 
-```{r echo=FALSE}
-alerts.all.tidy %>%
-  count(institutionType, word, sort = TRUE) %>%
-  top_n(10, wt = n) %>%
-  ggplot(aes(x = reorder(word, n), label = n , y = n)) + 
-  geom_col(alpha = 0.8, show.legend = FALSE) +
-  geom_text(hjust = 0, nudge_y = 0.0005, size = 3) +
-  coord_flip() +
-  labs(x = "",
-       y = "Number of times word appears across all crime alerts") + 
-  ggtitle("Most frequent words across all crime alerts") +
-  theme(panel.background = element_rect(fill = "transparent", color = NA),
-        plot.background = element_rect(fill = "transparent", color = NA))
-```
 
 
 

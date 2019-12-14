@@ -163,6 +163,9 @@ alerts.all.tidy %>%
 
 
 
+```{r}
+#knitr::purl("Work Frequency Analysis Notebook.Rmd", "Word Frequency Analysis Script", documentation = 2)
+```
 
 
 

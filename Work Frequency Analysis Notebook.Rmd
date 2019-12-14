@@ -7,6 +7,16 @@ output:
     toc_float: yes
 ---
 
+# set options {.tabset}
+
+## disable scientific notation
+```{r}
+options(scipen=999)
+```
+## show only 2 decimals
+```{r}
+options(digits = 2)
+```
 
 # Load packages {.tabset}
 
@@ -21,7 +31,17 @@ if (!require(tidyverse)){
   library(tidyverse)
 }
 ```
+## tidytext
+tidytext makes it easy to mine text data
 
+Documentation can be viewed [here](https://www.tidytextmining.com)
+
+```{r}
+if (!require(tidytext)){
+  install.packages("tidytext", dependencies = TRUE)
+  library(tidytext)
+}
+```
 
 
 # Import data {.tabset}
@@ -39,19 +59,19 @@ if (!require(tidyverse)){
 
 ## import private school alerts
 ```{r}
-school.separator <- "XXXXXnewschoolXXXXX"
-
 for (doc in docs.private)
 {
   if(!exists("alerts.private"))
   {
     enframe(read_lines(paste("Private/", doc, sep=""))) %>%
-      add_row(value = school.separator) -> alerts.private
+      mutate(name = doc,
+             institutionType = "Private") -> alerts.private
   }
   else
   {
     enframe(read_lines(paste("Private/", doc, sep=""))) %>%
-      add_row(value = school.separator) %>%
+      mutate (name = doc,
+              institutionType = "Private") %>%
       bind_rows(alerts.private) -> alerts.private
   }
 }
@@ -64,17 +84,128 @@ for (doc in docs.public)
   if(!exists("alerts.public"))
   {
     enframe(read_lines(paste("Public/", doc, sep=""))) %>%
-      add_row(value = school.separator) -> alerts.public
+      mutate(name = doc,
+             institutionType = "Public")-> alerts.public
   }
   else
   {
     enframe(read_lines(paste("Public/", doc, sep=""))) %>%
-      add_row(value = school.separator) %>%
+      mutate(name = doc,
+             institutionType = "Public") %>%
       bind_rows(alerts.public) -> alerts.public
   }
 }
 alerts.public
 ```
+
+## combine private and public alerts
+```{r}
+(alerts.private %>%
+  bind_rows(alerts.public)-> alerts.all)
+```
+
+# tidy data {.tabset}
+
+```{r}
+(alerts.all %>%
+  mutate(line = row_number()) %>%
+  unnest_tokens(word, value) %>%
+  filter(!str_detect(word, "[:digit:]")) %>%
+  anti_join(stop_words) %>%
+  filter(word != "ut")-> alerts.all.tidy)
+```
+
+# Word frequencies {.tabset}
+
+## Word Counts All {.tabset}
+
+### Proportions
+
+```{r echo=FALSE}
+
+num_rows <- nrow(alerts.all.tidy)
+
+alerts.all.tidy %>%
+  count(word, sort = TRUE) %>%
+  mutate(n_rows = num_rows,
+         proportion = n/n_rows) %>%
+  top_n(10,wt = n) %>%
+  ggplot(aes(x = reorder(word, proportion), label = proportion, y = proportion)) + 
+  geom_col(alpha = 0.8, show.legend = FALSE) +
+  geom_text(hjust = 0, nudge_y = 0.0005, size = 3) +
+  coord_flip() +
+  labs(x = "",
+       y = "Proportion of times word used across all alerts") + 
+  ggtitle("Most frequent words across all crime alerts") +
+  theme(panel.background = element_rect(fill = "transparent", color = NA),
+        plot.background = element_rect(fill = "transparent", color = NA))
+```
+
+### Counts
+
+```{r echo=FALSE}
+alerts.all.tidy %>%
+  count(institutionType, word, sort = TRUE) %>%
+  top_n(10, wt = n) %>%
+  ggplot(aes(x = reorder(word, n), label = n , y = n)) + 
+  geom_col(alpha = 0.8, show.legend = FALSE) +
+  geom_text(hjust = 0, nudge_y = 0.0005, size = 3) +
+  coord_flip() +
+  labs(x = "",
+       y = "Number of times word appears across all crime alerts") + 
+  ggtitle("Most frequent words across all crime alerts") +
+  theme(panel.background = element_rect(fill = "transparent", color = NA),
+        plot.background = element_rect(fill = "transparent", color = NA))
+```
+## Public vs. Private {.tabset}
+
+### Proportions
+
+```{r echo=FALSE}
+num_rows.private <- nrow(alerts.all.tidy %>% filter(institutionType == "Private"))
+num_rows.public <- nrow(alerts.all.tidy %>% filter(institutionType == "Public"))
+
+alerts.all.tidy %>%
+  count(institutionType, word, sort = TRUE) %>%
+  mutate(n_rows = ifelse(),
+         proportion = n/n_rows) %>%
+  top_n(10,wt = n) %>%
+  ggplot(aes(x = reorder(word, proportion), label = proportion, y = proportion)) + 
+  geom_col(alpha = 0.8, show.legend = FALSE) +
+  geom_text(hjust = 0, nudge_y = 0.0005, size = 3) +
+  coord_flip() +
+  labs(x = "",
+       y = "Proportion of times word used across all alerts") + 
+  ggtitle("Most frequent words across all crime alerts") +
+  theme(panel.background = element_rect(fill = "transparent", color = NA),
+        plot.background = element_rect(fill = "transparent", color = NA))
+```
+
+### Counts
+
+```{r echo=FALSE}
+alerts.all.tidy %>%
+  count(institutionType, word, sort = TRUE) %>%
+  top_n(10, wt = n) %>%
+  ggplot(aes(x = reorder(word, n), label = n , y = n)) + 
+  geom_col(alpha = 0.8, show.legend = FALSE) +
+  geom_text(hjust = 0, nudge_y = 0.0005, size = 3) +
+  coord_flip() +
+  labs(x = "",
+       y = "Number of times word appears across all crime alerts") + 
+  ggtitle("Most frequent words across all crime alerts") +
+  theme(panel.background = element_rect(fill = "transparent", color = NA),
+        plot.background = element_rect(fill = "transparent", color = NA))
+```
+
+
+
+
+
+
+
+
+
 
 
 

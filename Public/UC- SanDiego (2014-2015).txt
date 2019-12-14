@@ -1,0 +1,106 @@
+University Employee Payroll Scam
+University employees are receiving fraudulent e-mails indicating a
+change in their human resource status. The e-mail contains a link
+directing the employee to login to their human resources website to
+identify this change. The website provided appears very similar to
+the legitimate site in an effort to steal the employee’s credentials.
+Once the employee enters his/her login information, the scammer
+takes that information and signs into the employee’s official human
+resources account to change the employee’s direct deposit
+information. This redirects the employee’s paycheck to the bank
+account of another individual involved in the scam.
+Consequences of this Scam:
+ The employee’s paycheck can be stolen.
+ The money may not be returned in full to the employee.
+ The scammers can take the employee’s log-in credentials
+and attempt to log into other accounts that belong to the
+employee.
+Tips on how to Protect Yourself from this Scam:
+ Look for poor use of the English language in e-mails such as
+incorrect grammar, capitalization, and tenses. Many of the
+scammers who send these messages are not native English
+speakers.
+ Roll your cursor over the links received via e-mail and look
+for inconsistencies. If it is not the website the e-mail claims
+to be directing you to then the link is to a fraudulent site.
+ Never provide credentials of any sort via e-mail. This
+includes after clicking on links sent via e-mail. Always go to
+an official website rather than from a link sent to you via email.
+
+ Contact your personnel department if you receive suspicious
+e-mail.
+If you have been a victim of this scam, you may file a complaint
+with the FBI’s Internet Crime Complaint Center at
+www.IC3.gov. Please reference this PSA number in your complaint.
+The IC3 produced a PSA in May 2014 titled “Cyber-related Scams
+Targeting Universities, Employees, and Students,” which mentioned 
+UNCLASSIFIED
+UNCLASSIFIED
+the university employee payroll scam. The PSA can be viewed at
+http://www.ic3.gov/media/2014/140505.aspx.FBI Warns of Fictitious ‘Work-from-home’ Scam Targeting
+University Students
+College students across the United States have been targeted to
+participate in work-from-home scams. Students have been
+receiving e-mails to their school accounts recruiting them for payroll
+and/or human resource positions with fictitious companies. The
+“position” simply requires the student to provide his/her bank
+account number to receive a deposit and then transfer a portion of
+the funds to another bank account. Unbeknownst to the student,
+the other account is involved in the scam that the student has now
+helped perpetrate. The funds the student receives and is directed
+elsewhere have been stolen by cyber criminals. Participating in the
+scam is a crime and could lead to the student’s bank account being
+closed due to fraudulent activity or federal charges.
+Here’s how the scam works:
+ The student is asked to provide his/her bank account
+credentials under the guise of setting up direct deposit for
+his/her pay.
+ The scammers will add the student’s bank account to a
+victim employee’s direct deposit information to redirect the
+victim’s payroll deposit to the student’s account.
+ The student will receive the payroll deposit from the victim’s
+employer in the victim’s name.
+ The student will be directed to withdraw funds from the
+account and send a portion of the deposit, via wire transfer,
+to other individuals involved in the scam.
+Consequences of Participating in the Scam:
+ The student’s bank account will be identified by law
+enforcement as being involved in the fraud.
+ The victim employee has his/her pay stolen by the
+scammers utilizing the student’s bank account.
+ Without the student’s participation, the scam could not be
+perpetrated, so he/she facilitated the theft of the paycheck.
+ The student could be arrested and prosecuted in federal
+court. A criminal record will stay with the student for the rest
+of his/her life and will have to be divulged on future job
+applications, which could prevent the student from beomg
+hired.
+ The student’s bank account may be closed due to fraudulent
+activity and a report could be filed by the bank.
+ This could adversely affect the student’s credit record.
+UNCLASSIFIED
+UNCLASSIFIED
+Tips on how to Protect Yourself from this Scam:
+ If a job offer sounds too good to be true, it probably is.
+ Never accept a job that requires the depositing of funds into
+your account and wiring them to different accounts.
+ Look for poor use of the English language in e-mails
+such as incorrect grammar, capitalization, and tenses.
+Many of the scammers who send these messages are
+not native English speakers.
+ Never provide credentials of any kind such as bank
+account information, login names, passwords, or any
+other identifying information in response to a
+recruitment e-mail.
+ Forward these e-mails to the university’s IT personnel
+and tell your friends to be on the lookout for the scam.
+If you have been a victim of this scam, you may file a
+complaint with the FBI’s Internet Crime Complaint Center at
+www.ic3.gov. Please reference this PSA number in your
+complaint.
+The IC3 produced a PSA in May 2014 titled “Cyber-related
+Scams Targeting Universities, Employees, and Students,” which
+mentioned this scam. The PSA can be viewed at
+http://www.ic3.gov/media/2014/140505.aspx.
+Public Service Announcement Prepared by the Internet Crime Complaint Center (IC3) May 05, 2014 CYBERRELATED SCAMS TARGETING UNIVERSITIES, EMPLOYEES, AND STUDENTS The Internet Crime Complaint Center (IC3) is aware of multiple scams targeting universities, university employees, and students across the nation. The scams range from Internet fraud to intrusions. The following are common scenarios: Spear phishing emails are being sent to university employees that appear to be from their employer. The email contains a link and claims some type of issue has risen requiring them to enter their login credentials. Once employees provide their user name and password, the perpetrator accesses the university’s computer system to redirect the employees’ payroll allocation to another bank account. The university employees’ payroll allocations are being deposited into students’ accounts. These students were hired through online advertisements for workathome jobs, and provided their bank account information to the perpetrators to receive payment for the work they performed. Scammers are posting online advertisements soliciting college students for administrative positions in which they would receive checks via the mail or email. Students are directed to deposit the checks into their accounts, and then print checks and/or wire money to an individual. Students are never asked to provide their bank account information to the perpetrators. Perpetrators are compromising students’ credential resulting in the rerouting of their reimbursement money to other bank accounts. The reimbursement money is from student loans and used to pay tuition, books, and living expenses. Perpetrators are obtaining professors’ Personally Identifiable Information (PII) and using it to file fraudulent income tax returns. Some universities have been victims of intrusions, resulting in the perpetrators being able to access university databases containing information on their employees and students. If you have been a victim of one of these scams or any other Internet related scam, we encourage you to file a complaint with the IC3 at http://www.ic3.gov and notify your university police
+
